@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+const port = process.env.PORT || 3000;
 hbs.registerPartials(__dirname + '/views/partial');
 app.set('view engine','hbs');
 app.use(express.static(__dirname + '/public'));
@@ -49,6 +50,6 @@ app.get('/bad',(req,res) =>{
     errormessage : 'Loading in error message'
   })
 })
-app.listen(3000, () =>{
-  console.log('web page is running on port no 3000');
+app.listen(port, () =>{
+  console.log(`web page is running on port no ${port}`);
 });
